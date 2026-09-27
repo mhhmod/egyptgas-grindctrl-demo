@@ -46,7 +46,11 @@ export function ScaleBand() {
                   MTR-{String(i + 1).padStart(2, "0")}
                 </span>
                 <dd className="font-mono2 mt-4 text-[clamp(1.6rem,3.4vw,2.9rem)] font-semibold leading-none text-white">
-                  <CountUp value={c.value} prefix={c.prefix} />
+                  {c.static ? (
+                    <span aria-label={c.value.toLocaleString("en-US")}>{c.value.toLocaleString("en-US")}</span>
+                  ) : (
+                    <CountUp value={c.value} />
+                  )}
                 </dd>
                 <dt className="mt-3 text-[12px] font-bold uppercase tracking-[0.14em] text-[#9db0c4]">
                   {pick(c.label, lang)}
@@ -61,8 +65,8 @@ export function ScaleBand() {
         <Reveal delay={0.1}>
           <p className="mt-5 max-w-[72ch] text-xs leading-relaxed text-[#9db0c4]">
             {ar
-              ? "الأرقام كما تنشرها الشركة على موقعها الرسمي. لا توجد تقديرات أو استنتاجات."
-              : "Figures exactly as published on the company's official website. No estimates, no extrapolation."}
+              ? "عدادات العملاء كما تنشرها غاز مصر."
+              : "Customer meters, as published by Egypt Gas."}
           </p>
         </Reveal>
       </div>

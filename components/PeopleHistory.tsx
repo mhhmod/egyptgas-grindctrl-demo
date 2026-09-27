@@ -78,13 +78,6 @@ export function PeopleHistory() {
               </Reveal>
             ))}
           </ol>
-          <Reveal delay={0.1}>
-            <p className="mt-6 max-w-[72ch] text-xs leading-relaxed text-[#9db0c4]">
-              {ar
-                ? "التواريخ والأحداث كما يوثقها الموقع الرسمي لغاز مصر."
-                : "Dates and events exactly as documented on the official Egypt Gas website."}
-            </p>
-          </Reveal>
         </div>
       </section>
     </>

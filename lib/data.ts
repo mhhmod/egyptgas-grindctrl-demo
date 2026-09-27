@@ -16,11 +16,11 @@ export const contact = {
   } as Bilingual
 };
 
-export const counters: { value: number; label: Bilingual; prefix?: string }[] = [
+export const counters: { value: number; label: Bilingual; static?: boolean }[] = [
   { value: 6831190, label: { en: "Residential customers", ar: "عميل سكني" } },
   { value: 8901, label: { en: "Commercial customers", ar: "عميل تجاري" } },
   { value: 1465, label: { en: "Industrial customers", ar: "عميل صناعي" } },
-  { value: 7000, prefix: "~", label: { en: "Employees", ar: "موظف" } }
+  { value: 1983, label: { en: "Founded — Egypt's first natural gas company", ar: "التأسيس — أول شركة مصرية للغاز" }, static: true }
 ];
 
 export interface MapRegion {
@@ -38,7 +38,7 @@ export const mapRegions: MapRegion[] = [
   { id: "cairo", x: 256, y: 152, name: { en: "Cairo — Marg · Ain Shams · Shorouk", ar: "القاهرة — المرج · عين شمس · الشروق" }, activity: { en: "First project 1984; headquarters in Heliopolis", ar: "أول مشروع 1984؛ المقر الرئيسي بمصر الجديدة" } },
   { id: "ismailia", x: 302, y: 142, name: { en: "Ismailia — Moustakbal", ar: "الإسماعيلية — المستقبل" }, activity: { en: "Connected 2000; military entity & industrial zone 2018", ar: "تم التوصيل 2000؛ الكيان العسكري والمنطقة الصناعية 2018" } },
   { id: "sinai", x: 332, y: 202, name: { en: "South Sinai", ar: "جنوب سيناء" }, activity: { en: "Connected 2007", ar: "تم التوصيل 2007" } },
-  { id: "luxor", x: 256, y: 398, name: { en: "Luxor · Qena", ar: "الأقصر · قنا" }, activity: { en: "Upper Egypt connected 2009 — homes, industry, aluminium, sugar & paper", ar: "توصيل الصعيد 2009 — منازل ومصانع وألومنيوم وسكر وورق" } },
+  { id: "luxor", x: 256, y: 398, name: { en: "Luxor · Qena", ar: "الأقصر · قنا" }, activity: { en: "Upper Egypt connected 2009 — households, industry, aluminium, sugar & paper", ar: "توصيل الصعيد 2009 — منازل ومصانع وألومنيوم وسكر وورق" } },
   { id: "aswan", x: 266, y: 468, name: { en: "Aswan", ar: "أسوان" }, activity: { en: "Paper, sugar & iron-and-steel plants connected", ar: "توصيل مصانع الورق والسكر والحديد والصلب" } }
 ];
 

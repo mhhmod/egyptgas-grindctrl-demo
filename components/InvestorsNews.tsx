@@ -34,8 +34,8 @@ export function InvestorsNews() {
               <Reveal delay={0.15}>
                 <p className="mt-5 max-w-[50ch] text-[15px] leading-relaxed text-white/70">
                   {ar
-                    ? "بوابة واضحة لمعلومات الشركة والمساهمين والإفصاحات — فقط ما هو منشور وموثق فعلًا، دون رسوم أو أرقام مختلقة."
-                    : "A clear entry to company, shareholder and disclosure information — only what is actually published and documented. No invented charts, no invented figures."}
+                    ? "معلومات الشركة والمساهمين والإفصاحات من مصادر منشورة."
+                    : "Company, shareholder and disclosure information from published sources."}
                 </p>
               </Reveal>
             </div>
@@ -142,7 +142,7 @@ export function InvestorsNews() {
                 n.tag.en === "Safety" ? "text-[#c8342a]" : n.tag.en === "Events" ? "text-[#0c4a90]" : "text-[#087d59]";
               return (
               <Reveal key={n.title.en} delay={i * 0.07}>
-                <article className="group grid h-full grid-cols-[140px_1fr] gap-5 border-t-2 border-[#0a1424] pt-5 md:grid-cols-[180px_1fr]">
+                <article className="group grid h-full grid-cols-[120px_1fr] gap-4 border-t-2 border-[#0a1424] pt-5 sm:grid-cols-[180px_1fr] md:gap-5">
                   <div className="img-treatment relative aspect-square overflow-hidden">
                     <Image src={n.image} alt={pick(n.title, lang)} fill sizes="240px" loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>

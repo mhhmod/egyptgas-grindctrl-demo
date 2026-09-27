@@ -20,7 +20,7 @@ export function NetworkMap() {
           <Masked
             as="h2"
             className="font-display text-[clamp(2.2rem,5vw,4.4rem)] font-extrabold leading-[1.0] text-white lg:col-span-7"
-            lines={ar ? ["أين تعمل الشبكة،", "موثقًا."] : ["Where the network", "lives, documented."]}
+            lines={ar ? ["أكبر مناطق الامتياز", "في مصر."] : ["The largest concession", "areas in Egypt."]}
           />
           <Reveal delay={0.15} className="self-end lg:col-span-5">
             <p className="max-w-[46ch] text-[15px] leading-relaxed text-white/70">
@@ -109,8 +109,8 @@ export function NetworkMap() {
               </svg>
               <p className="px-1 pt-3 text-[11px] leading-relaxed text-[#9db0c4]">
                 {ar
-                  ? "مخطط يوضح مناطق التواجد حسب الموقع الرسمي — وليس خريطة هندسية لخطوط الأنابيب."
-                  : "Presence schematic per the official website — not an engineering map of pipelines."}
+                  ? "تواجد تشغيلي برسم تخطيطي."
+                  : "Operating presence, drawn schematically."}
               </p>
             </div>
           </Reveal>
