@@ -40,8 +40,8 @@ export function Hero() {
           sizes="100vw"
           className={reduce ? "object-cover" : "herodrift object-cover"}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060d18] via-[#060d18]/35 to-[#060d18]/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#060d18]/70 via-transparent to-[#060d18]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#060d18] via-[#060d18]/40 to-[#060d18]/65" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#060d18]/75 via-[#060d18]/20 to-[#060d18]/35" />
       </motion.div>
 
       {/* Pipeline motif: enters, crosses, exits toward the map */}
@@ -83,9 +83,9 @@ export function Hero() {
               initial={{ y: "112%" }}
               animate={{ y: "0%" }}
               transition={{ duration: 1, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="block text-[clamp(3rem,10vw,9rem)] leading-[0.94]"
+              className="block text-[clamp(2.9rem,10vw,9rem)] leading-[0.94]"
             >
-              {ar ? "مصر تعمل" : "Egypt runs"}
+              {ar ? "رائدة الغاز" : "Egypt's leading"}
             </motion.span>
           </span>
           <span className="mask-line">
@@ -93,12 +93,18 @@ export function Hero() {
               initial={{ y: "112%" }}
               animate={{ y: "0%" }}
               transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="block text-[clamp(3rem,10vw,9rem)] font-light leading-[0.96] text-[#9db0c4]"
+              className="block text-[clamp(2.9rem,10vw,9rem)] font-light leading-[0.96] text-[#9db0c4]"
             >
-              {ar ? "على شبكاتنا." : "on our lines."}
+              {ar ? "الطبيعي في مصر." : "gas network."}
             </motion.span>
           </span>
         </h1>
+
+        <p className="font-mono2 mt-6 flex flex-wrap gap-x-6 gap-y-1 text-[10px] tracking-[0.28em] text-white/55" aria-hidden>
+          <span>EST. 1983</span>
+          <span>CAIRO — 30.05°N</span>
+          <span>NAT. GAS — T&D · EPC</span>
+        </p>
 
         <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <motion.p
@@ -122,7 +128,7 @@ export function Hero() {
               <a
                 key={r.href}
                 href={r.href}
-                className="group flex items-center justify-between gap-2 bg-[#060d18]/80 px-4 py-4 text-[11px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition-colors hover:bg-[#0c4a90]"
+                className="group flex items-center justify-between gap-2 bg-[#060d18]/80 px-4 py-4 text-[11px] font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition-all hover:bg-[#0c4a90] active:scale-[0.98]"
               >
                 {r.label}
                 <ArrowUpRight size={14} className="text-[#a9cf38] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

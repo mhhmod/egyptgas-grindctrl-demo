@@ -42,6 +42,19 @@ body {
   color: var(--color-ink);
 }
 
+p {
+  text-wrap: pretty;
+}
+
+.map-node {
+  cursor: pointer;
+  outline: none;
+}
+.map-node:focus-visible circle:last-child {
+  stroke: var(--color-lime);
+  stroke-width: 3;
+}
+
 .font-display {
   font-family: var(--font-display);
   letter-spacing: -0.015em;

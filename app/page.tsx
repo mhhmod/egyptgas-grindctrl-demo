@@ -26,12 +26,15 @@ export default function Page() {
       <main>
         <Hero />
         <ScaleBand />
-        <FlowDivider />
+        <FlowDivider label="Flow: scale to network" />
         <NetworkMap />
+        <FlowDivider label="Flow: network to process" />
         <Capabilities />
+        <FlowDivider label="Flow: process to evidence" />
         <Stories />
         <Safety />
         <Customers />
+        <FlowDivider label="Flow: service to disclosure" />
         <InvestorsNews />
         <PeopleHistory />
       </main>

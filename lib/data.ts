@@ -16,11 +16,11 @@ export const contact = {
   } as Bilingual
 };
 
-export const counters: { value: number; label: Bilingual; plain?: boolean }[] = [
-  { value: 6831190, label: { en: "Residential customers", ar: "عميل سكني" } as Bilingual },
-  { value: 8901, label: { en: "Commercial customers", ar: "عميل تجاري" } as Bilingual },
-  { value: 1465, label: { en: "Industrial customers", ar: "عميل صناعي" } as Bilingual },
-  { value: 1983, label: { en: "Founded — first Egyptian gas company", ar: "التأسيس — أول شركة مصرية للغاز" } as Bilingual, plain: true }
+export const counters: { value: number; label: Bilingual; prefix?: string }[] = [
+  { value: 6831190, label: { en: "Residential customers", ar: "عميل سكني" } },
+  { value: 8901, label: { en: "Commercial customers", ar: "عميل تجاري" } },
+  { value: 1465, label: { en: "Industrial customers", ar: "عميل صناعي" } },
+  { value: 7000, prefix: "~", label: { en: "Employees", ar: "موظف" } }
 ];
 
 export interface MapRegion {
@@ -45,7 +45,8 @@ export const mapRegions: MapRegion[] = [
 export const abroad = [
   { name: { en: "Abu Dhabi, UAE", ar: "أبوظبي، الإمارات" }, activity: { en: "Industrial O&M since 2008 · branch opened 2019", ar: "تشغيل وصيانة صناعية منذ 2008 · فرع 2019" } },
   { name: { en: "Amman, Jordan", ar: "عمّان، الأردن" }, activity: { en: "Connected 2017 · northern pipeline from 2018", ar: "تم التوصيل 2017 · خط الأنابيب الشمالي من 2018" } },
-  { name: { en: "Kuwait", ar: "الكويت" }, activity: { en: "Customer service opened 2019", ar: "خدمة عملاء منذ 2019" } }
+  { name: { en: "Kuwait", ar: "الكويت" }, activity: { en: "Customer service opened 2019", ar: "خدمة عملاء منذ 2019" } },
+  { name: { en: "Iraq · Saudi Arabia", ar: "العراق · السعودية" }, activity: { en: "International representative offices", ar: "مكاتب تمثيل دولية" } }
 ];
 
 export interface Stage {
@@ -59,8 +60,8 @@ export const stages: Stage[] = [
   { no: "01", name: { en: "Survey", ar: "المسح" }, body: { en: "Field survey and customer, appliance and site data collection.", ar: "أعمال الرفع المساحي وتجميع بيانات العملاء والأجهزة والمواقع." }, proof: { en: "Every network begins on foot", ar: "كل شبكة تبدأ من الميدان" } },
   { no: "02", name: { en: "Design", ar: "التصميم" }, body: { en: "Engineering design and execution drawings to international standards, with the latest technology.", ar: "التصميم الهندسي وإصدار الخرائط التنفيذية وفق المعايير الدولية وبأحدث التقنيات." }, proof: { en: "Drawn to code, built to last", ar: "مرسوم بالكود، مبني ليدوم" } },
   { no: "03", name: { en: "Engineer", ar: "الهندسة" }, body: { en: "Steel and HDPE high-pressure lines; pressure-reduction and metering stations in all pressures and capacities.", ar: "خطوط الصلب والبولي إيثيلين عالية الضغط؛ محطات تخفيض الضغط والقياس بجميع الضغوط والسعات." }, proof: { en: "Separators · filters · heaters · meters · regulators · odorization", ar: "فواصل · فلاتر · سخانات · عدادات · منظمات · إضافة رائحة" } },
-  { no: "04", name: { en: "Build", ar: "الإنشاء" }, body: { en: "Distribution networks, regulators and service lines — plus integrated civil and mechanical works with own equipment and crews.", ar: "شبكات التوزيع والمنظمات وخطوط الخدمة — مع أعمال مدنية وميكانيكية متكاملة بمعدات وأطقم الشركة." }, proof: { en: "GRE · tanks · offshore platforms · fire & painting works", ar: "فيبر · خزانات · منصات بحرية · حريق ودهانات" } },
-  { no: "05", name: { en: "Connect", ar: "التوصيل" }, body: { en: "Household networks and safe conversion of home and commercial appliances to natural gas.", ar: "شبكات المنازل وتحويل الأجهزة المنزلية والتجارية للعمل بالغاز بأمان وكفاءة." }, proof: { en: "6.8M+ homes and counting", ar: "أكثر من 6.8 مليون منزل" } },
+  { no: "04", name: { en: "Build", ar: "الإنشاء" }, body: { en: "Distribution networks, regulators and service lines — plus integrated civil and mechanical works with own equipment and crews.", ar: "شبكات التوزيع والمنظمات وخطوط الخدمة — مع أعمال مدنية وميكانيكية متكاملة بمعدات وأطقم الشركة." }, proof: { en: "GRE · tanks · offshore platforms · splash-zone coating", ar: "فيبر · خزانات · منصات بحرية · طلاء منطقة الرذاذ" } },
+  { no: "05", name: { en: "Connect", ar: "التوصيل" }, body: { en: "Household networks and safe conversion of home and commercial appliances to natural gas.", ar: "شبكات المنازل وتحويل الأجهزة المنزلية والتجارية للعمل بالغاز بأمان وكفاءة." }, proof: { en: "A meter and regulator in every home", ar: "عداد ومنظم في كل وحدة سكنية" } },
   { no: "06", name: { en: "Operate", ar: "التشغيل" }, body: { en: "Operation of networks across concession areas, protecting lives and property.", ar: "تشغيل شبكات مناطق الامتياز بما يضمن سلامة الأعمال والحفاظ على الأرواح والممتلكات." }, proof: { en: "Round-the-clock control", ar: "تحكم على مدار الساعة" } },
   { no: "07", name: { en: "Maintain", ar: "الصيانة" }, body: { en: "Maintenance, rehabilitation and in-house manufacturing of network components in dedicated workshops.", ar: "الصيانة وإعادة التأهيل وتصنيع مكونات الشبكات في ورش الشركة المجهزة." }, proof: { en: "Best materials · latest equipment · international codes", ar: "أجود الخامات · أحدث المعدات · الأكواد الدولية" } }
 ];
@@ -87,9 +88,9 @@ export const stories: Story[] = [
     year: "2015",
     title: { en: "800 metres beneath the Nile", ar: "800 متر تحت نهر النيل" },
     place: { en: "Nile crossing · 16-inch", ar: "تعدية النيل · 16 بوصة" },
-    body: { en: "A trenchless crossing under the river — 800 metres of 16-inch steel — feeding Amerya and Alexandria.", ar: "تعدية بلا حفر تحت النهر — 800 متر من الصلب بقطر 16 بوصة — لتغذية العامرية والإسكندرية." },
+    body: { en: "An 800-metre, 16-inch steel crossing beneath the river — feeding Amerya and Alexandria.", ar: "تعدية بطول 800 متر وقطر 16 بوصة تحت النهر — لتغذية العامرية والإسكندرية." },
     image: "https://images.unsplash.com/photo-1439405326854-014607f694d7?auto=format&fit=crop&w=1800&q=70",
-    tags: [{ en: "High-pressure", ar: "ضغط عالٍ" }, { en: "Trenchless", ar: "بلا حفر" }]
+    tags: [{ en: "High-pressure", ar: "ضغط عالٍ" }, { en: "River crossing", ar: "تعدية نهرية" }]
   },
   {
     year: "2017",
@@ -112,19 +113,20 @@ export const stories: Story[] = [
 export interface TimelineEntry {
   year: string;
   text: Bilingual;
+  major?: boolean;
 }
 
 export const timeline: TimelineEntry[] = [
-  { year: "1983", text: { en: "Founded by ministerial decree — Egypt's first natural gas company", ar: "التأسيس بقرار وزاري — أول شركة مصرية للغاز الطبيعي" } },
+  { year: "1983", text: { en: "Founded by ministerial decree — Egypt's first natural gas company", ar: "التأسيس بقرار وزاري — أول شركة مصرية للغاز الطبيعي" }, major: true },
   { year: "1984", text: { en: "First project: Ain Shams, Cairo", ar: "أول مشروع: عين شمس بالقاهرة" } },
   { year: "1990", text: { en: "Haram, Giza connected", ar: "توصيل الهرم بالجيزة" } },
-  { year: "1996", text: { en: "First CNG station in Africa & the Middle East", ar: "أول محطة غاز سيارات في أفريقيا والشرق الأوسط" } },
+  { year: "1996", text: { en: "First CNG station in Africa & the Middle East", ar: "أول محطة غاز سيارات في أفريقيا والشرق الأوسط" }, major: true },
   { year: "1997–2002", text: { en: "Port Said · Menoufia · Ismailia & Qalyubia · Gharbia", ar: "بورسعيد · المنوفية · الإسماعيلية والقليوبية · الغربية" } },
   { year: "2007–08", text: { en: "South Sinai · industrial O&M in Abu Dhabi", ar: "جنوب سيناء · تشغيل صناعي في أبوظبي" } },
-  { year: "2009", text: { en: "Upper Egypt: Luxor, Aswan & Qena", ar: "الصعيد: الأقصر وأسوان وقنا" } },
-  { year: "2013–15", text: { en: "Naga Hammadi aluminium, Deshna & Qus plants · 800 m Nile crossing", ar: "ألومنيوم نجع حمادي ومصانع دشنا وقوص · تعدية النيل 800 متر" } },
+  { year: "2009", text: { en: "Upper Egypt: Luxor, Aswan & Qena", ar: "الصعيد: الأقصر وأسوان وقنا" }, major: true },
+  { year: "2013–15", text: { en: "Naga Hammadi aluminium, Deshna & Qus plants · 800 m Nile crossing", ar: "ألومنيوم نجع حمادي ومصانع دشنا وقوص · تعدية النيل 800 متر" }, major: true },
   { year: "2016–18", text: { en: "Dakahlia · Jordan & the New Capital · northern Jordan pipeline", ar: "الدقهلية · الأردن والعاصمة الإدارية · خط الأردن الشمالي" } },
-  { year: "2019", text: { en: "Abu Dhabi branch · customer service in Kuwait", ar: "فرع أبوظبي · خدمة عملاء في الكويت" } }
+  { year: "2019", text: { en: "Abu Dhabi branch · customer service in Kuwait", ar: "فرع أبوظبي · خدمة عملاء في الكويت" }, major: true }
 ];
 
 export const certs = [

@@ -52,13 +52,26 @@ export function Capabilities() {
               </div>
             </div>
           </div>
-          <ol className="lg:col-span-7">
+          <ol className="relative lg:col-span-7">
+            {/* system spine: the line materialises as stages activate */}
+            <span aria-hidden className="absolute bottom-4 start-[13px] top-4 w-px bg-white/10 md:start-[37px]" />
+            <span
+              aria-hidden
+              className="absolute start-[13px] top-4 w-px bg-[#a9cf38] transition-all duration-700 md:start-[37px]"
+              style={{ height: `calc(${(active / (stages.length - 1)) * 100}% - ${(active / (stages.length - 1)) * 32}px)` }}
+            />
             {stages.map((s, i) => (
-              <li key={s.no}>
+              <li key={s.no} className="relative">
+                <span
+                  aria-hidden
+                  className={`absolute start-[9px] top-9 h-[9px] w-[9px] rounded-full border transition-all duration-500 md:start-[33px] ${
+                    i <= active ? "border-[#a9cf38] bg-[#a9cf38]" : "border-[#9db0c4]/50 bg-[#0a1424]"
+                  }`}
+                />
                 <button
                   onClick={() => setActive(i)}
                   aria-pressed={i === active}
-                  className={`grid w-full grid-cols-[auto_1fr] gap-5 border-t border-white/10 py-7 text-start transition-colors last:border-b md:grid-cols-[88px_1fr] ${
+                  className={`grid w-full grid-cols-[auto_1fr] gap-5 border-t border-white/10 py-7 ps-10 text-start transition-colors last:border-b md:grid-cols-[88px_1fr] md:ps-16 ${
                     i === active ? "bg-white/[0.03]" : "opacity-70 hover:opacity-100"
                   }`}
                 >

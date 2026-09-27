@@ -121,18 +121,16 @@ export function FlowDivider({ label }: { label?: string }) {
   );
 }
 
-export function CountUp({ value, plain }: { value: number; plain?: boolean }) {
+export function CountUp({ value, prefix }: { value: number; prefix?: string }) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-  const [n, setN] = useState(0);
+  // The final figure is the initial DOM content (SSR / SEO / no-JS truth).
+  // Animation only ever counts *toward* it, never replaces a zero.
+  const [n, setN] = useState<number | null>(null);
 
   useEffect(() => {
-    if (!inView) return;
-    if (reduce || plain) {
-      setN(value);
-      return;
-    }
+    if (!inView || reduce) return;
     let raf = 0;
     const t0 = performance.now();
     const dur = 1800;
@@ -144,9 +142,15 @@ export function CountUp({ value, plain }: { value: number; plain?: boolean }) {
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, value, reduce, plain]);
+  }, [inView, value, reduce]);
 
-  return <span ref={ref}>{n.toLocaleString("en-US")}</span>;
+  const shown = n ?? value;
+  return (
+    <span ref={ref} aria-label={`${prefix ?? ""}${value.toLocaleString("en-US")}`}>
+      {prefix}
+      {shown.toLocaleString("en-US")}
+    </span>
+  );
 }
 
 export function useT() {

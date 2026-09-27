@@ -7,10 +7,10 @@ import { Eyebrow, ImageReveal, Masked, Reveal } from "./Chrome";
 
 const irDocs = (ar: boolean) =>
   [
-    { label: ar ? "بيانات المساهمين" : "Shareholders", href: "https://www.egyptgas.com.eg/Shareholders.aspx" },
-    { label: ar ? "أسهم غاز مصر" : "Egypt Gas shares", href: "https://www.egyptgas.com.eg/Shares.aspx" },
-    { label: ar ? "مجلس الإدارة والحوكمة" : "Board & governance", href: "https://www.egyptgas.com.eg/BoardMembers.aspx" },
-    { label: ar ? "التحميلات والتقارير" : "Downloads & reports", href: "https://www.egyptgas.com.eg/Downloads.aspx" }
+    { label: ar ? "بيانات المساهمين" : "Shareholders", meta: ar ? "هيكل الملكية" : "OWNERSHIP", href: "https://www.egyptgas.com.eg/Shareholders.aspx" },
+    { label: ar ? "أسهم غاز مصر" : "Egypt Gas shares", meta: ar ? "السوق" : "LISTING", href: "https://www.egyptgas.com.eg/Shares.aspx" },
+    { label: ar ? "مجلس الإدارة والحوكمة" : "Board & governance", meta: ar ? "الحوكمة" : "GOVERNANCE", href: "https://www.egyptgas.com.eg/BoardMembers.aspx" },
+    { label: ar ? "التحميلات والتقارير" : "Downloads & reports", meta: ar ? "وثائق" : "FILINGS", href: "https://www.egyptgas.com.eg/Downloads.aspx" }
   ] as const;
 
 export function InvestorsNews() {
@@ -52,8 +52,13 @@ export function InvestorsNews() {
                       >
                         <span className="flex items-center gap-4">
                           <span className="font-mono2 text-xs text-[#9db0c4]">IR-{String(i + 1).padStart(2, "0")}</span>
-                          <span className="font-display text-xl font-bold text-white transition-transform duration-300 group-hover:translate-x-1 md:text-2xl">
-                            {d.label}
+                          <span>
+                            <span className="font-display block text-xl font-bold text-white transition-transform duration-300 group-hover:translate-x-1 md:text-2xl">
+                              {d.label}
+                            </span>
+                            <span className="font-mono2 mt-1 block text-[10px] tracking-[0.22em] text-[#9db0c4]">
+                              {d.meta} · EGYPTGAS.COM.EG
+                            </span>
                           </span>
                         </span>
                         <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#24405f] text-white transition-colors group-hover:border-[#a9cf38] group-hover:bg-[#a9cf38] group-hover:text-[#0a1424]">
@@ -132,14 +137,17 @@ export function InvestorsNews() {
           </ImageReveal>
 
           <div className="mt-8 grid gap-8 md:grid-cols-2">
-            {rest.map((n, i) => (
+            {rest.map((n, i) => {
+              const tagColor =
+                n.tag.en === "Safety" ? "text-[#c8342a]" : n.tag.en === "Events" ? "text-[#0c4a90]" : "text-[#087d59]";
+              return (
               <Reveal key={n.title.en} delay={i * 0.07}>
                 <article className="group grid h-full grid-cols-[140px_1fr] gap-5 border-t-2 border-[#0a1424] pt-5 md:grid-cols-[180px_1fr]">
                   <div className="img-treatment relative aspect-square overflow-hidden">
                     <Image src={n.image} alt={pick(n.title, lang)} fill sizes="240px" loading="lazy" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#087d59]">
+                    <p className={`text-[11px] font-bold uppercase tracking-[0.2em] ${tagColor}`}>
                       {pick(n.tag, lang)} · {pick(n.date, lang)}
                     </p>
                     <h3 className="font-display mt-2 text-xl font-extrabold leading-snug md:text-2xl">{pick(n.title, lang)}</h3>
@@ -147,7 +155,8 @@ export function InvestorsNews() {
                   </div>
                 </article>
               </Reveal>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

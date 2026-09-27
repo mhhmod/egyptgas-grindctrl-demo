@@ -20,7 +20,7 @@ export function NetworkMap() {
           <Masked
             as="h2"
             className="font-display text-[clamp(2.2rem,5vw,4.4rem)] font-extrabold leading-[1.0] text-white lg:col-span-7"
-            lines={ar ? ["أكبر مناطق الامتياز", "في مصر."] : ["The largest concession", "footprint in Egypt."]}
+            lines={ar ? ["أين تعمل الشبكة،", "موثقًا."] : ["Where the network", "lives, documented."]}
           />
           <Reveal delay={0.15} className="self-end lg:col-span-5">
             <p className="max-w-[46ch] text-[15px] leading-relaxed text-white/70">
@@ -66,19 +66,40 @@ export function NetworkMap() {
                 )}
                 {mapRegions.map((r) => {
                   const on = r.id === active;
+                  const short = pick(r.name, lang).split("—")[0].split("·")[0].trim();
                   return (
                     <g
                       key={r.id}
+                      className="map-node"
                       onMouseEnter={() => setActive(r.id)}
                       onFocus={() => setActive(r.id)}
                       onClick={() => setActive(r.id)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          setActive(r.id);
+                        }
+                      }}
                       tabIndex={0}
                       role="button"
+                      aria-pressed={on}
                       aria-label={pick(r.name, lang)}
-                      style={{ cursor: "pointer", outline: "none" }}
                     >
                       <circle cx={r.x} cy={r.y} r={on ? 26 : 16} fill={on ? "rgba(169,207,56,0.14)" : "transparent"} style={{ transition: "all .4s" }} />
                       <circle cx={r.x} cy={r.y} r={on ? 7 : 4.5} fill={on ? "#a9cf38" : "#0c4a90"} stroke="#f2f0e9" strokeWidth="1.5" style={{ transition: "all .4s" }} />
+                      <text
+                        x={r.x}
+                        y={r.y + (on ? 24 : 20)}
+                        textAnchor="middle"
+                        fill={on ? "#f2f0e9" : "#9db0c4"}
+                        fillOpacity={on ? 1 : 0.75}
+                        fontSize={on ? 11 : 9.5}
+                        letterSpacing="1"
+                        fontFamily="monospace"
+                        style={{ transition: "all .4s" }}
+                      >
+                        {short.toUpperCase().slice(0, 14)}
+                      </text>
                     </g>
                   );
                 })}

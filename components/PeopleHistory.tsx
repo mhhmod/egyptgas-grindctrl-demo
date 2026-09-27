@@ -57,16 +57,18 @@ export function PeopleHistory() {
           <Masked
             as="h2"
             className="font-display mt-5 max-w-[20ch] text-[clamp(2.2rem,5vw,4.4rem)] font-extrabold leading-[1.0] text-white"
-            lines={ar ? ["تاريخ نفخر به.", "ومستقبل نتطلع إليه."] : ["A history of pride.", "A future in sight."]}
+            lines={ar ? ["تاريخ نفخر به،", "ومستقبل نتطلع إليه."] : ["A history of pride,", "a future in sight."]}
           />
           <ol className="mt-14">
             {timeline.map((t, i) => (
               <Reveal key={t.year} delay={Math.min(i * 0.03, 0.2)}>
                 <li
-                  className={`grid gap-2 border-t border-white/10 py-6 transition-colors last:border-b hover:bg-white/[0.02] md:grid-cols-[180px_1fr_auto] md:items-baseline md:gap-8 md:px-2`}
+                  className={`grid gap-2 border-t border-white/10 transition-colors last:border-b hover:bg-white/[0.02] md:grid-cols-[180px_1fr_auto] md:items-baseline md:gap-8 md:px-2 ${
+                    t.major ? "py-8 md:py-9" : "py-5 md:py-6"
+                  }`}
                 >
-                  <span className="font-mono2 text-lg font-semibold text-[#a9cf38]">{t.year}</span>
-                  <span className="font-display max-w-[70ch] text-lg font-bold leading-snug text-white md:text-xl">
+                  <span className={`font-mono2 font-semibold ${t.major ? "text-2xl text-[#a9cf38] md:text-3xl" : "text-base text-[#9db0c4]"}`}>{t.year}</span>
+                  <span className={`font-display leading-snug text-white ${t.major ? "max-w-[70ch] text-xl font-extrabold md:text-3xl" : "max-w-[70ch] text-base font-bold text-white/80 md:text-lg"}`}>
                     {pick(t.text, lang)}
                   </span>
                   <span className="font-mono2 hidden text-xs text-[#9db0c4] md:block" aria-hidden>

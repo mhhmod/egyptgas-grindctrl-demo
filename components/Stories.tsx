@@ -40,7 +40,12 @@ export function Stories() {
             </ImageReveal>
             <div className={i % 2 === 1 ? "lg:order-1 lg:col-span-5" : "lg:col-span-5"}>
               <Reveal>
-                <p className="font-mono2 text-[11px] tracking-[0.24em] text-[#a9cf38]">{s.year} — {pick(s.place, lang)}</p>
+                <p className="font-mono2 flex items-center gap-3 text-[11px] tracking-[0.24em] text-[#9db0c4]">
+                  <span className="text-[#a9cf38]">EV-{String(i + 1).padStart(2, "0")}/04</span>
+                  <span aria-hidden className="inline-block h-px w-8 bg-[#24405f]" />
+                  <span>{s.year}</span>
+                </p>
+                <p className="font-mono2 mt-4 text-[11px] tracking-[0.24em] text-[#a9cf38]">{pick(s.place, lang)}</p>
                 <h3 className="font-display mt-3 text-[clamp(1.8rem,3.6vw,3rem)] font-extrabold leading-[1.05] text-white">
                   {pick(s.title, lang)}
                 </h3>

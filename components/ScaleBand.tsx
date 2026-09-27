@@ -30,7 +30,7 @@ export function ScaleBand() {
           as="h2"
           delay={0.05}
           className="font-display mt-5 max-w-[20ch] text-[clamp(2.2rem,5vw,4.4rem)] font-extrabold leading-[1.0] text-white"
-          lines={ar ? ["ستة ملايين منزل", "يعمل بالغاز."] : ["Six million homes", "on gas."]}
+          lines={ar ? ["كل عميل،", "محسوب."] : ["Every customer,", "counted."]}
         />
         <Reveal delay={0.15}>
           <p className="font-mono2 mt-5 text-[11px] tracking-[0.22em] text-[#9db0c4]">
@@ -46,7 +46,7 @@ export function ScaleBand() {
                   MTR-{String(i + 1).padStart(2, "0")}
                 </span>
                 <dd className="font-mono2 mt-4 text-[clamp(1.6rem,3.4vw,2.9rem)] font-semibold leading-none text-white">
-                  <CountUp value={c.value} plain={c.plain} />
+                  <CountUp value={c.value} prefix={c.prefix} />
                 </dd>
                 <dt className="mt-3 text-[12px] font-bold uppercase tracking-[0.14em] text-[#9db0c4]">
                   {pick(c.label, lang)}

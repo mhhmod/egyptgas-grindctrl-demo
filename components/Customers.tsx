@@ -26,7 +26,7 @@ export function Customers() {
     {
       icon: MapPin,
       title: ar ? "الفروع وخدمة العملاء" : "Branches & service points",
-      body: ar ? "مقرات خدمة العملاء في مناطق الامتياز." : "Customer offices across the concession areas.",
+      body: ar ? "34 مقر خدمة عملاء في مناطق الامتياز." : "34 customer offices across the concession areas.",
       cta: ar ? "اعثر على فرع" : "Find a branch",
       href: "https://www.egyptgas.com.eg/StaticPages.aspx?Id=44"
     }
@@ -40,7 +40,7 @@ export function Customers() {
           <Masked
             as="h2"
             className="font-display text-[clamp(2.2rem,5vw,4.4rem)] font-extrabold leading-[1.0] text-white lg:col-span-7"
-            lines={ar ? ["نخدم 6.8 مليون عميل.", "نرد على واحد."] : ["Serving 6.8 million.", "Answering one."]}
+            lines={ar ? ["نخدم الملايين،", "ونرد على الواحد."] : ["Serving millions,", "answering one."]}
           />
           <Reveal delay={0.15} className="self-end lg:col-span-5">
             <p className="max-w-[44ch] text-[15px] leading-relaxed text-white/70">
@@ -55,7 +55,7 @@ export function Customers() {
         <Reveal>
           <a
             href={contact.emergencyHref}
-            className="group mt-12 flex flex-col gap-4 bg-[#c8342a] p-7 transition-colors hover:bg-[#a52820] md:flex-row md:items-center md:justify-between md:p-10"
+            className="group mt-12 flex flex-col gap-4 bg-[#c8342a] p-7 transition-all hover:bg-[#a52820] active:scale-[0.99] md:flex-row md:items-center md:justify-between md:p-10"
             aria-label={ar ? "اتصل بالطوارئ 129" : "Call emergency 129"}
           >
             <span className="flex items-center gap-5">
