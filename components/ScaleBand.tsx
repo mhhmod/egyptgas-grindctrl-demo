@@ -47,7 +47,7 @@ export function ScaleBand() {
                 </span>
                 <dd className="font-mono2 mt-4 text-[clamp(1.6rem,3.4vw,2.9rem)] font-semibold leading-none text-white">
                   {c.static ? (
-                    <span aria-label={c.value.toLocaleString("en-US")}>{c.value.toLocaleString("en-US")}</span>
+                    <span aria-label={String(c.value)}>{c.value}</span>
                   ) : (
                     <CountUp value={c.value} />
                   )}
